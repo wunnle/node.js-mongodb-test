@@ -11,5 +11,8 @@
       "src": "/",
       "dest": "/routes"
     }
-  ]
+  ],
+  "env": {
+    "DASECRET": "@dasecret"
+  }
 }
