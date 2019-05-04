@@ -18,6 +18,10 @@
     {
       "src": "/getUser/(.*)",
       "dest": "/routes/getUser/index.js?name=$1"
+    },
+    {
+      "src": "/allUsers",
+      "dest": "/routes/allUsers"
     }
   ],
   "env": {
