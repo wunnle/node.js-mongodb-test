@@ -20,6 +20,10 @@
       "dest": "/routes/getUser/index.js?name=$1"
     },
     {
+      "src": "/deleteUser/(.*)",
+      "dest": "/routes/deleteUser/index.js?id=$1"
+    },
+    {
       "src": "/allUsers",
       "dest": "/routes/allUsers"
     }
