@@ -1,14 +1,14 @@
 const express = require('express')
-const monggoose = require('mongoose')
+const mongoose = require('mongoose')
 
 const dbURL = process.env.MONGO_DB_URL
 const app = express()
 
 app.get('/', (req, res) => {
 
-  monggoose.connect(dbURL, { useNewUrlParser: true })
+  mongoose.connect(dbURL, { useNewUrlParser: true })
 
-  const db = monggoose.connection
+  const db = mongoose.connection
   db.on('error', console.error.bind(console, 'connection error:'));
   db.once('open', () => {
     res.send('connected to db!')

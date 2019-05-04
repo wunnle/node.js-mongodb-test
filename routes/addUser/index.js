@@ -1,25 +1,23 @@
 const express = require('express')
-const monggoose = require('mongoose')
+const mongoose = require('mongoose')
 
-const dbURL = process.env.MONGO_DB_URL
+const { dbURL } = require('../../config.js')
 
 const app = express()
-const personSchema = new monggoose.Schema({
-  name: String
-})
+const { personSchema } = require('../../schemas')
 
 app.get('/addUser', (req, res) => {
 
-  monggoose.connect(dbURL, { useNewUrlParser: true })
+  mongoose.connect(dbURL, { useNewUrlParser: true })
 
-  const db = monggoose.connection
+  const db = mongoose.connection
 
   db.on('error', console.error.bind(console, 'connection error:'));
   db.once('open', () => {
     console.log('connected to db')
   })
 
-  const Person = monggoose.model('Person', personSchema)
+  const Person = mongoose.model('Person', personSchema)
 
   if (req.query.name) {
     const user = new Person({ name: req.query.name })
