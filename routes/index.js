@@ -4,10 +4,6 @@ const monggoose = require('mongoose')
 const dbURL = process.env.MONGO_DB_URL
 const app = express()
 
-const kittySchema = new monggoose.Schema({
-  name: String
-})
-
 app.get('/', (req, res) => {
 
   monggoose.connect(dbURL, { useNewUrlParser: true })
