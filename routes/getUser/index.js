@@ -7,15 +7,13 @@ const { connect } = require('../../helpers/db-helper')
 const app = express()
 
 app.get('/getUser/*', async (req, res) => {
-  console.log(req.query)
-  console.log(req.originalUrl)
 
-  if(req.query.id) {
+  if(req.query.name) {
 
     connect()
 
     const Person = mongoose.model('Person', personSchema)
-    const user = await Person.find({ name: req.query.id })
+    const user = await Person.find({ name: req.query.name })
 
     if(user.length > 0) {
       res.json({
@@ -23,15 +21,15 @@ app.get('/getUser/*', async (req, res) => {
         info: user
       })
     } else {
-      res.json({
+      res.status(404).json({
         message: `I don't know anyone by that name, fellow traveler`
       })
     }
 
 
   } else {
-    res.json({
-      error: 'enter a user name'
+    res.status(400).json({
+      error: 'Who are you looking for?'
     })
   }
 

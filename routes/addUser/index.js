@@ -6,8 +6,8 @@ const { personSchema } = require('../../schemas')
 
 const { connect } = require('../../helpers/db-helper')
 
-app.get('/addUser', (req, res) => {
-
+app.get('/addUser/*', (req, res) => {
+  
   connect()
 
   const Person = mongoose.model('Person', personSchema)

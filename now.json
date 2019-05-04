@@ -12,12 +12,12 @@
       "dest": "/routes"
     },
     {
-      "src": "/addUser",
-      "dest": "/routes/addUser/"
+      "src": "/addUser/(.*)",
+      "dest": "/routes/addUser/index.js?name=$1"
     },
     {
       "src": "/getUser/(.*)",
-      "dest": "/routes/getUser/index.js?id=$1"
+      "dest": "/routes/getUser/index.js?name=$1"
     }
   ],
   "env": {
