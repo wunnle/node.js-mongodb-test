@@ -10,10 +10,14 @@
     {
       "src": "/",
       "dest": "/routes"
+    },
+    {
+      "src": "/addPerson",
+      "dest": "/routes/addPerson/"
     }
   ],
   "env": {
     "DASECRET": "@dasecret",
-    "MONGO_DB_URL": "@MONGO_DB_URL"
+    "MONGO_DB_URL": "@mongo_db_url"
   }
 }
