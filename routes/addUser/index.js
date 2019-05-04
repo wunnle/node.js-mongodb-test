@@ -1,21 +1,14 @@
 const express = require('express')
 const mongoose = require('mongoose')
 
-const { dbURL } = require('../../config.js')
-
 const app = express()
 const { personSchema } = require('../../schemas')
 
+const { connect } = require('../../helpers/db-helper')
+
 app.get('/addUser', (req, res) => {
 
-  mongoose.connect(dbURL, { useNewUrlParser: true })
-
-  const db = mongoose.connection
-
-  db.on('error', console.error.bind(console, 'connection error:'));
-  db.once('open', () => {
-    console.log('connected to db')
-  })
+  connect()
 
   const Person = mongoose.model('Person', personSchema)
 
