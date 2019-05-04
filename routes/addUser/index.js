@@ -8,7 +8,7 @@ const personSchema = new monggoose.Schema({
   name: String
 })
 
-app.get('/addPerson', (req, res) => {
+app.get('/addUser', (req, res) => {
 
   monggoose.connect(dbURL, { useNewUrlParser: true })
 

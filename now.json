@@ -12,8 +12,8 @@
       "dest": "/routes"
     },
     {
-      "src": "/addPerson",
-      "dest": "/routes/addPerson/"
+      "src": "/addUser",
+      "dest": "/routes/addUser/"
     }
   ],
   "env": {
