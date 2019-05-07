@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const { dbURL } = require('../config')
+require('dotenv').config()
 
 function connect() {
   mongoose.connect(dbURL, { useNewUrlParser: true })

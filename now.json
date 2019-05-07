@@ -26,10 +26,19 @@
     {
       "src": "/allUsers",
       "dest": "/routes/allUsers"
+    },
+    {
+      "src": "/addAdmin",
+      "dest": "/routes/addAdmin"
+    },
+    {
+      "src": "/login",
+      "dest": "/routes/login"
     }
   ],
   "env": {
     "DASECRET": "@dasecret",
-    "MONGO_DB_URL": "@mongo_db_url"
+    "MONGO_DB_URL": "@mongo_db_url",
+    "HASHKEY": "@hash_key"
   }
 }
