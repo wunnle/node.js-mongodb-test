@@ -1,19 +1,24 @@
 const express = require('express')
 const mongoose = require('mongoose')
-
+const verifyToken = require('../../middlewares/veriyToken')
+const bodyParser = require('body-parser')
 const { personSchema } = require('../../schemas')
 const { connect } = require('../../helpers/db-helper')
 
+
 const app = express()
 
-app.get('/deleteUser/*', async (req, res) => {
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
-  if(req.query.id) {
+app.delete('/deleteUser', verifyToken, async (req, res) => {
+
+  if(req.body.id) {
 
     connect()
 
     const Person = mongoose.model('Person', personSchema)
-    const user = await Person.findOneAndDelete({ _id: req.query.id })
+    const user = await Person.findOneAndDelete({ _id: req.body.id })
 
     if(user) {
       res.json({
